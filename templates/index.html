@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End-Link Forensic Crawler | Brand Protection Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="app-header">
+            <div class="brand-section">
+                <div class="brand-icon">
+                    <span class="radar-dot"></span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">END-LINK FORENSICS</h1>
+                    <p class="brand-subtitle">AI Anti-Phishing & Visual Identity Crawler</p>
+                </div>
+            </div>
+
+            <!-- Global Status Bar -->
+            <div class="header-status">
+                <div class="status-badge" id="aiStatusBadge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">AI Verifier: Connecting...</span>
+                </div>
+                <div class="status-badge" id="brandsBadge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span id="brandsCountText">Brands: --</span>
+                </div>
+                <div class="status-badge" id="historyBadge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span id="crawlsCountText">Saved Crawls: --</span>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs">
+                <button class="nav-tab-btn active" data-tab="tabLaunch" id="btnTabLaunch">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span>Crawl & Monitor</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tabForensics" id="btnTabForensics">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>Forensic Report</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tabHistory" id="btnTabHistory">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3v5h5"></path>
+                        <path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"></path>
+                        <path d="M12 7v5l4 2"></path>
+                    </svg>
+                    <span>Crawl History</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content Body -->
+        <main class="main-content">
+            <!-- TAB 1: Crawl & Monitor -->
+            <section id="tabLaunch" class="tab-pane active">
+                <!-- Launch Card -->
+                <div class="card launch-card">
+                    <div class="card-header">
+                        <div class="header-icon-title">
+                            <span class="icon-ring">🚀</span>
+                            <div>
+                                <h2>Launch Destination Crawl</h2>
+                                <p>Trace doorway links, solve Cloudflare challenges, traverse redirect hops, and verify Money Site assets.</p>
+                            </div>
+                        </div>
+                        <button class="toggle-settings-btn" id="btnToggleSettings">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                            <span>Advanced Options</span>
+                        </button>
+                    </div>
+
+                    <!-- URL Input Bar -->
+                    <form id="crawlForm" class="crawl-form">
+                        <div class="input-group">
+                            <span class="input-icon">🌐</span>
+                            <input type="text" id="targetUrlInput" placeholder="Enter doorway or target URL (e.g. https://e200m.online/ or https://tri88.net/)" required autocomplete="off">
+                            <button type="submit" id="btnStartCrawl" class="btn btn-primary">
+                                <span class="btn-spinner" id="btnSpinner"></span>
+                                <span class="btn-text">Start Crawl</span>
+                            </button>
+                            <button type="button" id="btnCancelCrawl" class="btn btn-danger hidden">
+                                <span>Cancel</span>
+                            </button>
+                        </div>
+
+                        <!-- Settings Drawer -->
+                        <div class="settings-drawer" id="settingsDrawer">
+                            <div class="settings-grid">
+                                <div class="setting-item">
+                                    <label for="headlessToggle">Browser Execution Mode</label>
+                                    <div class="toggle-container">
+                                        <input type="checkbox" id="headlessToggle" checked>
+                                        <span class="toggle-label">Headless (Background Chrome)</span>
+                                    </div>
+                                    <p class="setting-desc">Uncheck to display live Chrome window with Turnstile view</p>
+                                </div>
+                                <div class="setting-item">
+                                    <label for="challengeTimeoutInput">Cloudflare Timeout (Seconds)</label>
+                                    <input type="number" id="challengeTimeoutInput" value="15" min="0" max="180">
+                                    <p class="setting-desc">Time allocated to solve Cloudflare Turnstile verification</p>
+                                </div>
+                                <div class="setting-item">
+                                    <label for="maxPagesInput">Max Pages Crawled (0 = Unlimited)</label>
+                                    <input type="number" id="maxPagesInput" value="0" min="0" max="50">
+                                    <p class="setting-desc">Stops automatically when Money Site is reached regardless of limit</p>
+                                </div>
+                                <div class="setting-item">
+                                    <label for="brandSelect">Target Brand Focus (Optional)</label>
+                                    <select id="brandSelect">
+                                        <option value="">Auto-Detect from Page Content</option>
+                                    </select>
+                                    <p class="setting-desc">Prioritize specific brand for verification</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Live Stream & Visual Metrics Grid -->
+                <div class="monitor-grid">
+                    <!-- Left: Metrics & Flow Diagram -->
+                    <div class="monitor-metrics-panel">
+                        <!-- Live Status Cards -->
+                        <div class="metrics-row">
+                            <div class="metric-card" id="cardStatus">
+                                <span class="metric-label">STATUS</span>
+                                <span class="metric-value status-idle" id="liveStatusText">IDLE</span>
+                            </div>
+                            <div class="metric-card" id="cardPageType">
+                                <span class="metric-label">PAGE TYPE</span>
+                                <span class="metric-value" id="livePageTypeText">--</span>
+                            </div>
+                            <div class="metric-card" id="cardBrand">
+                                <span class="metric-label">DETECTED BRAND</span>
+                                <span class="metric-value" id="liveBrandText">--</span>
+                            </div>
+                            <div class="metric-card" id="cardDuration">
+                                <span class="metric-label">ELAPSED TIME</span>
+                                <span class="metric-value" id="liveTimerText">00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Hop Chain Visualizer -->
+                        <div class="card flow-card">
+                            <div class="card-header-sm">
+                                <h3>Navigation Hop Chain</h3>
+                                <span class="hop-count-badge" id="hopCountBadge">0 Hops</span>
+                            </div>
+                            <div class="hop-flow-container" id="hopFlowContainer">
+                                <div class="hop-placeholder">No active crawl running. Enter a URL above to inspect hops.</div>
+                            </div>
+                        </div>
+
+                        <!-- Live Action Milestone Panel -->
+                        <div class="card milestone-card">
+                            <div class="card-header-sm">
+                                <h3>Workflow Milestones</h3>
+                            </div>
+                            <div class="milestones-list" id="milestonesList">
+                                <div class="milestone-item" id="msDoorway">
+                                    <span class="ms-bullet"></span>
+                                    <span class="ms-text">Initial Doorway Access</span>
+                                </div>
+                                <div class="milestone-item" id="msCloudflare">
+                                    <span class="ms-bullet"></span>
+                                    <span class="ms-text">Cloudflare Verification Bypass</span>
+                                </div>
+                                <div class="milestone-item" id="msClassify">
+                                    <span class="ms-bullet"></span>
+                                    <span class="ms-text">Page Structure Classification (AMP / Landing)</span>
+                                </div>
+                                <div class="milestone-item" id="msAction">
+                                    <span class="ms-bullet"></span>
+                                    <span class="ms-text">Priority CTA & Funnel Traversal</span>
+                                </div>
+                                <div class="milestone-item" id="msMoneySite">
+                                    <span class="ms-bullet"></span>
+                                    <span class="ms-text">Money Site Terminal Arrival</span>
+                                </div>
+                                <div class="milestone-item" id="msForensics">
+                                    <span class="ms-bullet"></span>
+                                    <span class="ms-text">AI Dual-Asset & Live Chat Verification</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Live Terminal Console -->
+                    <div class="monitor-terminal-panel">
+                        <div class="card terminal-card">
+                            <div class="terminal-header">
+                                <div class="terminal-dots">
+                                    <span class="td-dot red"></span>
+                                    <span class="td-dot yellow"></span>
+                                    <span class="td-dot green"></span>
+                                </div>
+                                <span class="terminal-title">LIVE CRAWLER LOG STREAM</span>
+                                <div class="terminal-actions">
+                                    <button class="term-btn" id="btnToggleScroll" title="Toggle Auto-Scroll">Auto-Scroll: ON</button>
+                                    <button class="term-btn" id="btnClearLog" title="Clear Console">Clear</button>
+                                </div>
+                            </div>
+                            <div class="terminal-body" id="terminalLog">
+                                <div class="term-line term-dim">Ready to trace. Enter target URL to begin live streaming.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: Forensic Report & Visual Verification -->
+            <section id="tabForensics" class="tab-pane">
+                <!-- Verdict Banner -->
+                <div class="verdict-banner" id="verdictBanner">
+                    <div class="verdict-icon" id="verdictIcon">🛡️</div>
+                    <div class="verdict-content">
+                        <div class="verdict-sub">FINAL SITE VERIFICATION VERDICT</div>
+                        <h2 class="verdict-title" id="verdictTitle">AWAITING CRAWL REPORT</h2>
+                        <p class="verdict-details" id="verdictDetails">Run a crawl from the first tab or choose a historical record to view full forensic analysis.</p>
+                    </div>
+                    <div class="verdict-badges" id="verdictBadges">
+                        <span class="badge" id="badgeBrand">Brand: --</span>
+                        <span class="badge" id="badgePageType">Type: --</span>
+                    </div>
+                </div>
+
+                <!-- Forensic Assets Inspection Grid -->
+                <div class="forensics-grid">
+                    <!-- Card 1: Logo Forensics -->
+                    <div class="card asset-card">
+                        <div class="card-header-sm">
+                            <div class="asset-title-group">
+                                <h3>Logo Visual Forensic</h3>
+                                <span class="asset-status-pill" id="logoStatusPill">UNKNOWN</span>
+                            </div>
+                        </div>
+                        <div class="asset-preview-box">
+                            <img id="logoPreviewImg" src="" alt="Captured Logo" class="asset-img hidden">
+                            <div class="asset-no-img" id="logoNoImg">No Logo Captured</div>
+                        </div>
+                        <div class="asset-details-list">
+                            <div class="detail-row">
+                                <span class="label">Identified Brand:</span>
+                                <span class="value" id="logoBrandVal">--</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Match Confidence:</span>
+                                <div class="meter-bar-container">
+                                    <div class="meter-bar" id="logoMeterBar" style="width: 0%"></div>
+                                </div>
+                                <span class="value-sm" id="logoConfidenceVal">--%</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Forensic Method:</span>
+                                <span class="value" id="logoMethodVal">SigLIP 2 + DINOv2 + OCR</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Our Brand Logo:</span>
+                                <span class="value" id="logoIsOursVal">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Favicon Forensics -->
+                    <div class="card asset-card">
+                        <div class="card-header-sm">
+                            <div class="asset-title-group">
+                                <h3>Favicon Forensic</h3>
+                                <span class="asset-status-pill" id="favStatusPill">UNKNOWN</span>
+                            </div>
+                        </div>
+                        <div class="asset-preview-box">
+                            <img id="favPreviewImg" src="" alt="Captured Favicon" class="asset-img favicon-preview hidden">
+                            <div class="asset-no-img" id="favNoImg">No Favicon Captured</div>
+                        </div>
+                        <div class="asset-details-list">
+                            <div class="detail-row">
+                                <span class="label">Favicon Brand:</span>
+                                <span class="value" id="favBrandVal">--</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Match Confidence:</span>
+                                <div class="meter-bar-container">
+                                    <div class="meter-bar" id="favMeterBar" style="width: 0%"></div>
+                                </div>
+                                <span class="value-sm" id="favConfidenceVal">--%</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Authenticity:</span>
+                                <span class="value" id="favIsOursVal">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Live Chat Inspection -->
+                    <div class="card asset-card">
+                        <div class="card-header-sm">
+                            <div class="asset-title-group">
+                                <h3>Live Chat Forensics</h3>
+                                <span class="asset-status-pill" id="chatStatusPill">NOT FOUND</span>
+                            </div>
+                        </div>
+                        <div class="livechat-info-box">
+                            <div class="chat-provider-badge" id="chatProviderBadge">NO PROVIDER</div>
+                            <p class="chat-verification-note" id="chatVerificationNote">Live chat verification runs when Money Site is reached.</p>
+                        </div>
+                        <div class="asset-details-list">
+                            <div class="detail-row">
+                                <span class="label">Provider:</span>
+                                <span class="value" id="chatProviderVal">--</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Chat ID:</span>
+                                <span class="value" id="chatIdVal">--</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Constructed URL:</span>
+                                <a href="#" target="_blank" class="value link-truncate" id="chatUrlVal">--</a>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Status:</span>
+                                <span class="value" id="chatResultVal">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Structure & Signals Table -->
+                <div class="card page-signals-card">
+                    <div class="card-header-sm">
+                        <h3>Money Site Signals & Structural Heuristics</h3>
+                    </div>
+                    <div class="signals-grid" id="signalsGrid">
+                        <div class="signal-box">
+                            <span class="sig-name">Game Catalog Cards</span>
+                            <span class="sig-val" id="sigGameCards">0</span>
+                        </div>
+                        <div class="signal-box">
+                            <span class="sig-name">Provider Nav Controls</span>
+                            <span class="sig-val" id="sigProviders">0</span>
+                        </div>
+                        <div class="signal-box">
+                            <span class="sig-name">Category Controls</span>
+                            <span class="sig-val" id="sigCategories">0</span>
+                        </div>
+                        <div class="signal-box">
+                            <span class="sig-name">Linked Image Tiles</span>
+                            <span class="sig-val" id="sigImageTiles">0</span>
+                        </div>
+                        <div class="signal-box">
+                            <span class="sig-name">Internal Links</span>
+                            <span class="sig-val" id="sigInternalLinks">0</span>
+                        </div>
+                        <div class="signal-box">
+                            <span class="sig-name">Rotating Banner</span>
+                            <span class="sig-val" id="sigBanner">No</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raw JSON Accordion -->
+                <div class="card raw-json-card">
+                    <details>
+                        <summary>View Complete report.json Raw Payload</summary>
+                        <pre class="json-code" id="rawReportJson">{}</pre>
+                    </details>
+                </div>
+            </section>
+
+            <!-- TAB 3: Crawl History & Archive -->
+            <section id="tabHistory" class="tab-pane">
+                <div class="card history-card">
+                    <div class="card-header">
+                        <div class="header-icon-title">
+                            <span class="icon-ring">📂</span>
+                            <div>
+                                <h2>Crawl History & Archive</h2>
+                                <p>Review, filter, and inspect previous forensic crawling records saved in Output/</p>
+                            </div>
+                        </div>
+                        <div class="history-controls">
+                            <input type="text" id="historySearchInput" placeholder="Filter by URL or Brand..." class="search-input">
+                            <select id="historyFilterClassification">
+                                <option value="ALL">All Verdicts</option>
+                                <option value="OUR SITE">OUR SITE</option>
+                                <option value="PHISHING">PHISHING</option>
+                                <option value="BLOCKED">BLOCKED</option>
+                            </select>
+                            <button class="btn btn-secondary" id="btnRefreshHistory">
+                                <span>Refresh</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- History Table -->
+                    <div class="table-container">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Date / Time</th>
+                                    <th>Brand</th>
+                                    <th>Starting Doorway</th>
+                                    <th>Final Reached URL</th>
+                                    <th>Verdict / Classification</th>
+                                    <th>Pages</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody">
+                                <tr>
+                                    <td colspan="7" class="text-center">Loading history...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

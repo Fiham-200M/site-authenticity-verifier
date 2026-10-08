@@ -1,0 +1,5 @@
+# Version used by the project's local development environment.
+playwright==1.62.0
+openpyxl==3.1.5
+pydantic>=2.0
+flask>=3.0.0

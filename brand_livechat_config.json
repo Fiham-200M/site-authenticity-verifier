@@ -1,0 +1,14 @@
+{
+  "DEWI11": {
+    "provider": "livechat",
+    "license_id": "18263412",
+    "group_id": "4",
+    "chat_url": "https://direct.lc.chat/18263412/4"
+  },
+  "JAGOLEDAK": {
+    "provider": "livechat",
+    "license_id": "19353035",
+    "group_id": "4",
+    "chat_url": "https://direct.lc.chat/19353035/4"
+  }
+}
